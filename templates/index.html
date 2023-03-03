@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block main %}
+
+
+
+<main>
+    <section>
+        <br>
+        <center><img src="{{ url_for('static', filename='/images/image.jpeg') }}" class="img-fluid" alt="Translate"
+                width="550" style="border-radius: 20px;"></center>
+        <br>
+        <br>
+        <h2 style="text-align: center;">Malayalam Word Split and Morphological Analysis</h2>
+        <form action="/" method="POST">
+            <center>
+                <div class="form-floating">
+
+                    <textarea class="form-control" id="floatingTextarea2" placeholder="Write the English Sentence here" name="English Text"
+                        style="height: 100px; width: 550px;max-width: 100%;"></textarea>
+                    <label for="floatingTextarea2" style="position: absolute;left: 47%;">Malayalam Text</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-warning">Split</button>
+            </center>
+        </form>
+    </section>
+
+    <article>
+        <center>
+            <br>
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                    <h6 class="card-title mb-2 text-muted">Split Words</h6>
+                    <br>
+                    <p class="card-text">Entered word is : <p style="font-weight: bolder;">{{init_word}}  </p> probable splits are :{{ Split }}</p>
+                </div>
+            </div>
+        </center>
+    </article>
+
+    <br>
+    <br>
+    <br>
+    <h2 style="text-align: center;">Malayalam Spell Check</h2>
+    <section>
+        <form action="/spellcheck" method="POST">
+            <center>
+                <div class="form-floating">
+
+                    <textarea class="form-control" id="floatingTextarea2" placeholder="Write the English Sentence here" name="English Text"
+                        style="height: 100px; width: 550px;max-width: 100%;"></textarea>
+                    <label for="floatingTextarea2" style="position: absolute;left: 47%;">Malayalam Text</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-warning">Spell Check</button>
+            </center>
+        </form>
+    </section>
+
+    <article>
+        <center>
+            <br>
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                    <h6 class="card-title mb-2 text-muted">Check Spelling</h6>
+                    <br>
+                    <p class="card-text">Entered word is : <p style="font-weight: bolder;">{{spell_word}}  </p> Mispelled Words are :{{ Spell }}</p>
+                </div>
+            </div>
+        </center>
+    </article>
+    <br>
+    <br>
+    <br>
+    <h2 style="text-align: center;">Suggestions</h2>
+    <section>
+        <form action="/suggestor" method="POST">
+            <center>
+                <div class="form-floating">
+
+                    <textarea class="form-control" id="floatingTextarea2" placeholder="Write the English Sentence here" name="English Text"
+                        style="height: 100px; width: 550px;max-width: 100%;"></textarea>
+                    <label for="floatingTextarea2" style="position: absolute;left: 47%;">Malayalam Text</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-warning">Suggest</button>
+            </center>
+        </form>
+    </section>
+
+    <article>
+        <center>
+            <br>
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                    <h6 class="card-title mb-2 text-muted">Suggest Words</h6>
+                    <br>
+                    <p class="card-text">Entered word is : <p style="font-weight: bolder;">{{sugg_word}}  </p> Word Suggestions are :{{ Suggest }}</p>
+                </div>
+            </div>
+        </center>
+    </article>
+
+
+
+</main>
+
+{% endblock main %}
